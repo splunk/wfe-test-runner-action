@@ -1,0 +1,51 @@
+name: 'Workflow engine test runner'
+description: 'Tringger argo workflow'
+inputs:
+  splunk:  # id of input
+    description: 'Splunk version to test.'
+    required: true
+  test-type:
+    description: 'Type of tests to execute'
+    required: true
+  test-args:
+    description: 'Pytest args for tests'
+    required: false
+  job-name:
+    description: 'Name for the Job'
+    required: true
+  labels:
+    description: 'Labels for argo workflow execution'
+    required: false
+  workflow-tmpl-name:
+    description: 'Name of workflow template to trigger'
+    required: true
+  workflow-template-ns:
+    description: 'Namespace where the orkflow template lies'
+    required: false
+    default: 'default'
+  destroy-setup:
+    description: 'Destroy the Infrastructure set up for testing'
+    required: false
+    default: 'Yes'
+  addon-url:
+    description: 'URL for Add-on spl'
+    required: true
+  
+
+outputs:
+  workflow-name: # id of output
+    description: 'Name of workflow triggered'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.workflow-tmpl-name }}
+    - ${{ inputs.workflow-template-ns }}
+    - ${{ inputs.destroy-setup }}
+    - ${{ inputs.addon-url }}
+    - ${{ inputs.job-name }}
+    - ${{ inputs.splunk }}
+    - ${{ inputs.test-type }}
+    - ${{ inputs.test-args }}
+    - ${{ inputs.labels }}
+
