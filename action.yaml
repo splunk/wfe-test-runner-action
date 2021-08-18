@@ -36,7 +36,7 @@ inputs:
     description: 'Name of workflow template to trigger'
     required: true
   workflow-template-ns:
-    description: 'Namespace where the orkflow template lies'
+    description: 'Namespace where the workflow template lies'
     required: false
     default: 'default'
   destroy-setup:
