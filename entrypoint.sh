@@ -15,7 +15,7 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 #   ######################################################################## 
-env
+env | grep ARGO
 
 RANDOM_STRING=`head -3 /dev/urandom | tr -cd '[:lower:]' | cut -c -4`
 JOB_NAME="$5-$RANDOM_STRING"
