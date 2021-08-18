@@ -49,7 +49,9 @@ inputs:
   argo-token:
     description: 'Argo token'
     required: true
-  
+  argo-server:
+    description: 'Argo server'
+    required: true
 
 outputs:
   workflow-name: # id of output
@@ -68,4 +70,5 @@ runs:
     - ${{ inputs.test-args }}
     - ${{ inputs.labels }}
     - ${{ inputs.argo-token }}
+    - ${{ inputs.argo-server }}
 
