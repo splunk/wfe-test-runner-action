@@ -26,6 +26,3 @@ echo 'WORKFLOW_NAME:' ${WORKFLOW_NAME}
 echo "::set-output name=workflow-name::$(echo $WORKFLOW_NAME)"
 
 argo logs --follow ${WORKFLOW_NAME} -n ${2}
-
-# step:check if workflow completed
-until argo wait ${WORKFLOW_NAME} -n workflows; do echo "Argo wait ended with failure $?. Trying again"; sleep 1; done
