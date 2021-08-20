@@ -46,6 +46,9 @@ inputs:
   addon-url:
     description: 'URL for Add-on spl'
     required: true
+  addon-secret-id:
+    description: 'AWS addon secret ID'
+    required: true
 
 outputs:
   workflow-name: # id of output
@@ -63,4 +66,5 @@ runs:
     - ${{ inputs.test-type }}
     - ${{ inputs.test-args }}
     - ${{ inputs.labels }}
+    - ${{ inputs.addon-secret-id }}
 
