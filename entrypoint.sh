@@ -24,7 +24,7 @@ WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.ar
     -p job-name=${5} \
     -p splunk-version=${6} \
     -p test-type=${7} \
-    -p test-args="${8}" \
+    -p pytest-args="${8}" \
     -p aws-addon-secret-id=${10} \
     -l="${9},test-type=${7},splunk-version=${6}" | jq -r .metadata.name`
 
