@@ -36,7 +36,7 @@ inputs:
     description: 'Name of workflow template to trigger'
     required: true
   workflow-template-ns:
-    description: 'Namespace where the orkflow template lies'
+    description: 'Namespace where the workflow template lies'
     required: false
     default: 'default'
   destroy-setup:
@@ -45,6 +45,9 @@ inputs:
     default: 'Yes'
   addon-url:
     description: 'URL for Add-on spl'
+    required: true
+  addon-secret-id:
+    description: 'AWS addon secret ID'
     required: true
 
 outputs:
@@ -63,4 +66,5 @@ runs:
     - ${{ inputs.test-type }}
     - ${{ inputs.test-args }}
     - ${{ inputs.labels }}
+    - ${{ inputs.addon-secret-id }}
 
