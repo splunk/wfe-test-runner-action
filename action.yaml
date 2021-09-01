@@ -49,6 +49,9 @@ inputs:
   addon-secret-id:
     description: 'AWS addon secret ID'
     required: true
+  extra-args:
+    description: 'Extra args for arg0 submit'
+    required: false
 
 outputs:
   workflow-name: # id of output
@@ -67,4 +70,5 @@ runs:
     - ${{ inputs.test-args }}
     - ${{ inputs.labels }}
     - ${{ inputs.addon-secret-id }}
+    - ${{ inputs.extra-args}}
 
