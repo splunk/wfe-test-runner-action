@@ -39,10 +39,10 @@ inputs:
     description: 'Namespace where the workflow template lies'
     required: false
     default: 'default'
-  destroy-setup:
-    description: 'Destroy the Infrastructure set up for testing'
-    required: false
-    default: 'Yes'
+  delay-destroy:
+    description: 'Delay destruction of the setup by 1h'
+    required: True
+    default: 'No'
   addon-url:
     description: 'URL for Add-on spl'
     required: true
@@ -62,7 +62,7 @@ runs:
   args:
     - ${{ inputs.workflow-tmpl-name }}
     - ${{ inputs.workflow-template-ns }}
-    - ${{ inputs.destroy-setup }}
+    - ${{ inputs.delay-destroy }}
     - ${{ inputs.addon-url }}
     - ${{ inputs.job-name }}
     - ${{ inputs.splunk }}

@@ -19,7 +19,7 @@ env | grep ARGO
 
 WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.argoproj.io/workflow-template=${1} --argo-base-href '' \
     -p ci-repository-url="git@github.com:${GITHUB_REPOSITORY}.git" \
-    -p ci-commit-sha=${GITHUB_SHA} -p run-destroy=${3} \
+    -p ci-commit-sha=${GITHUB_SHA} -p delay-destroy=${3} \
     -p addon-url="${4}" \
     -p job-name=${5} \
     -p splunk-version=${6} \
