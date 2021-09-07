@@ -46,8 +46,8 @@ inputs:
   addon-url:
     description: 'URL for Add-on spl'
     required: true
-  addon-secret-id:
-    description: 'AWS addon secret ID'
+  addon-name:
+    description: 'Technical add-on name'
     required: true
   sc4s-version:
     description: 'version of SC4S, No if not required'
@@ -69,6 +69,6 @@ runs:
     - ${{ inputs.test-type }}
     - ${{ inputs.test-args }}
     - ${{ inputs.labels }}
-    - ${{ inputs.addon-secret-id }}
+    - ${{ inputs.addon-name }}
     - ${{ inputs.sc4s-version }}
 
