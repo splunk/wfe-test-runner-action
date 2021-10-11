@@ -52,6 +52,9 @@ inputs:
   sc4s-version:
     description: 'version of SC4S, No if not required'
     required: true
+  install-java:
+    description: 'install java on splunk instance'
+    default: 'No'
 
 outputs:
   workflow-name: # id of output
@@ -71,4 +74,5 @@ runs:
     - ${{ inputs.labels }}
     - ${{ inputs.addon-name }}
     - ${{ inputs.sc4s-version }}
+    - ${{ inputs.install-java }}
 
