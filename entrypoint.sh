@@ -33,7 +33,7 @@ WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.ar
     -p test-type=${7} \
     -p pytest-args="${8}" \
     -p addon-name=${10} \
-    -p addon-version=${11}\
+    -p vendor-version=${11}\
     -p sc4s-version=${12} \
     -p install-java=${13} \
     -l="${9},test-type=${7},splunk-version=${6}" | jq -r .metadata.name`
