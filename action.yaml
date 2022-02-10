@@ -49,6 +49,10 @@ inputs:
   addon-name:
     description: 'Technical add-on name'
     required: true
+  vendor-version:
+    description: 'Vendor product version'
+    required: false
+    default: "default"
   sc4s-version:
     description: 'version of SC4S, No if not required'
     required: true
@@ -73,6 +77,7 @@ runs:
     - ${{ inputs.test-args }}
     - ${{ inputs.labels }}
     - ${{ inputs.addon-name }}
+    - ${{ inputs.vendor-version }}
     - ${{ inputs.sc4s-version }}
     - ${{ inputs.install-java }}
 
