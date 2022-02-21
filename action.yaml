@@ -59,6 +59,10 @@ inputs:
   install-java:
     description: 'install java on splunk instance'
     default: 'No'
+  sc4s-docker-registry:
+    description: 'Docker registry from which sc4s images will be pulled'
+    required: false
+    default: ''
 
 outputs:
   workflow-name: # id of output
@@ -80,4 +84,5 @@ runs:
     - ${{ inputs.vendor-version }}
     - ${{ inputs.sc4s-version }}
     - ${{ inputs.install-java }}
+    - ${{ inputs.sc4s-docker-registry }}
 
