@@ -63,6 +63,14 @@ inputs:
     description: 'Docker registry from which sc4s images will be pulled'
     required: false
     default: ''
+  os-name:
+    description: 'OS name on which splunk will be spinned for scripted input'
+    required: false
+    default: 'ubuntu'
+  os-version:
+    description: 'OS version on which splunk will be spinned for scripted input'
+    required: false
+    default: 'latest'
 
 outputs:
   workflow-name: # id of output
@@ -85,4 +93,6 @@ runs:
     - ${{ inputs.sc4s-version }}
     - ${{ inputs.install-java }}
     - ${{ inputs.sc4s-docker-registry }}
+    - ${{ inputs.os-name }}
+    - ${{ inputs.os-version }}
 
