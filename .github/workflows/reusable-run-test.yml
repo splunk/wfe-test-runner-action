@@ -1,0 +1,11 @@
+name: workflow-runner
+on: 
+  workflow_call:
+
+jobs:
+  test-stage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing
+        shell: bash
+        run: echo "Hello Galaxy"
