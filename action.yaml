@@ -17,13 +17,7 @@ name: workflow-runner
 on: 
   workflow_call:
 
-jobs:
-  test-stage:
-    runs-on: ubuntu-latest
-    steps:
-      - name: testing
-        shell: bash
-        run: echo "Hello Galaxy"
+
 # action.yml
 # name: 'Workflow engine test runner'
 # description: 'Tringger argo workflow'
@@ -89,18 +83,26 @@ jobs:
 # runs:
 #   using: "composite"
 #   steps:
-#     - uses: actions/checkout@v3
-#       with:
-#         submodules: recursive
-#     - name: test-stage
-#       shell: bash
-#       run: echo "Hello Universe"
-#     - name: Configure AWS credentials
-#       uses: aws-actions/configure-aws-credentials@v1
-#       with:
-#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#         aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+jobs:
+  test-stage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing
+        shell: bash
+        run: echo "Hello Galaxy"
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - name: test-stage
+      shell: bash
+      run: echo "Hello Universe"
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
     # - name: Read secrets from AWS Secrets Manager into environment variables
     #   id: get-argo-token
     #   run: |
