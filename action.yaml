@@ -13,83 +13,94 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 #   ########################################################################
+name: workflow-runner
+on: 
+  workflow_call:
+
+jobs:
+  test-stage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing
+        shell: bash
+        run: echo "Hello Galaxy"
 # action.yml
-name: 'Workflow engine test runner'
-description: 'Tringger argo workflow'
-inputs:
-  splunk:  # id of input
-    description: 'Splunk version to test.'
-    required: true
-  test-type:
-    description: 'Type of tests to execute'
-    required: true
-  test-args:
-    description: 'Pytest args for tests'
-    required: false
-  job-name:
-    description: 'Name for the Job'
-    required: true
-  labels:
-    description: 'Labels for argo workflow execution'
-    required: false
-  workflow-tmpl-name:
-    description: 'Name of workflow template to trigger'
-    required: true
-  workflow-template-ns:
-    description: 'Namespace where the workflow template lies'
-    required: false
-    default: 'default'
-  delay-destroy:
-    description: 'Delay destruction of the setup by 1h'
-    required: True
-    default: 'No'
-  addon-url:
-    description: 'URL for Add-on spl'
-    required: true
-  addon-name:
-    description: 'Technical add-on name'
-    required: true
-  vendor-version:
-    description: 'Vendor product version'
-    required: false
-    default: "default"
-  sc4s-version:
-    description: 'version of SC4S, No if not required'
-    required: true
-  install-java:
-    description: 'install java on splunk instance'
-    default: 'No'
-  sc4s-docker-registry:
-    description: 'Docker registry from which sc4s images will be pulled'
-    required: false
-    default: ''
-  os-name:
-    description: 'OS name on which splunk will be spinned for scripted input'
-    required: false
-    default: 'ubuntu'
-  os-version:
-    description: 'OS version on which splunk will be spinned for scripted input'
-    required: false
-    default: 'latest'
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-number }}
-runs:
-  using: "composite"
-  steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
-    - name: test-stage
-      shell: bash
-      run: echo "Hello Universe"
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+# name: 'Workflow engine test runner'
+# description: 'Tringger argo workflow'
+# inputs:
+#   splunk:  # id of input
+#     description: 'Splunk version to test.'
+#     required: true
+#   test-type:
+#     description: 'Type of tests to execute'
+#     required: true
+#   test-args:
+#     description: 'Pytest args for tests'
+#     required: false
+#   job-name:
+#     description: 'Name for the Job'
+#     required: true
+#   labels:
+#     description: 'Labels for argo workflow execution'
+#     required: false
+#   workflow-tmpl-name:
+#     description: 'Name of workflow template to trigger'
+#     required: true
+#   workflow-template-ns:
+#     description: 'Namespace where the workflow template lies'
+#     required: false
+#     default: 'default'
+#   delay-destroy:
+#     description: 'Delay destruction of the setup by 1h'
+#     required: True
+#     default: 'No'
+#   addon-url:
+#     description: 'URL for Add-on spl'
+#     required: true
+#   addon-name:
+#     description: 'Technical add-on name'
+#     required: true
+#   vendor-version:
+#     description: 'Vendor product version'
+#     required: false
+#     default: "default"
+#   sc4s-version:
+#     description: 'version of SC4S, No if not required'
+#     required: true
+#   install-java:
+#     description: 'install java on splunk instance'
+#     default: 'No'
+#   sc4s-docker-registry:
+#     description: 'Docker registry from which sc4s images will be pulled'
+#     required: false
+#     default: ''
+#   os-name:
+#     description: 'OS name on which splunk will be spinned for scripted input'
+#     required: false
+#     default: 'ubuntu'
+#   os-version:
+#     description: 'OS version on which splunk will be spinned for scripted input'
+#     required: false
+#     default: 'latest'
+# outputs:
+#   random-number:
+#     description: "Random number"
+#     value: ${{ steps.random-number-generator.outputs.random-number }}
+# runs:
+#   using: "composite"
+#   steps:
+#     - uses: actions/checkout@v3
+#       with:
+#         submodules: recursive
+#     - name: test-stage
+#       shell: bash
+#       run: echo "Hello Universe"
+#     - name: Configure AWS credentials
+#       uses: aws-actions/configure-aws-credentials@v1
+#       with:
+#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
     # - name: Read secrets from AWS Secrets Manager into environment variables
     #   id: get-argo-token
     #   run: |
