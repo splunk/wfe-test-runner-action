@@ -25,7 +25,7 @@ else
 fi
 
 WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.argoproj.io/workflow-template=${1} --argo-base-href '' \
-    -p ci-repository-url="git@github.com:${GITHUB_REPOSITORY}.git" \
+    -p ci-repository-url="https://github.com/${GITHUB_REPOSITORY}.git" \
     -p ci-commit-sha=${BRANCH_NAME} -p delay-destroy=${3} \
     -p addon-url="${4}" \
     -p job-name=${5} \
