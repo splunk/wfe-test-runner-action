@@ -16,7 +16,7 @@
             "prepareCmd": 'yq -i eval ".runs.image = \"docker://ghcr.io/splunk/wfe-test-runner-action/wfe-test-runner-action:v${nextRelease.version}\"" action.yaml'
         }],
         ["@semantic-release/git", {
-            "assets": ["action.yml"],
+            "assets": ["action.yaml"],
             "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
         }],
         "@semantic-release/github"
