@@ -17,7 +17,7 @@
 name: 'Workflow engine test runner'
 description: 'Tringger argo workflow'
 inputs:
-  splunk:  # id of input
+  splunk: # id of input
     description: 'Splunk version to test.'
     required: true
   test-type:
@@ -71,13 +71,12 @@ inputs:
     description: 'OS version on which splunk will be spinned for scripted input'
     required: false
     default: 'latest'
-
 outputs:
   workflow-name: # id of output
     description: 'Name of workflow triggered'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/splunk/wfe-test-runner-action/wfe-test-runner-action:v1.6.5'
   args:
     - ${{ inputs.workflow-tmpl-name }}
     - ${{ inputs.workflow-template-ns }}
@@ -95,4 +94,3 @@ runs:
     - ${{ inputs.sc4s-docker-registry }}
     - ${{ inputs.os-name }}
     - ${{ inputs.os-version }}
-
