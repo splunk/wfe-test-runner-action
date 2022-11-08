@@ -21,7 +21,7 @@ if [[ "${GITHUB_EVENT_NAME}" != "pull_request" ]]
 then
     BRANCH_NAME=${GITHUB_REF}
 else
-    BRANCH_NAME=${GITHUB_REF}
+    BRANCH_NAME=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.head.sha)
 fi
 
 WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.argoproj.io/workflow-template=${1} --argo-base-href '' \
