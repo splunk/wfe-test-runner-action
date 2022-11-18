@@ -19,7 +19,7 @@ set -o xtrace
 
 if [[ "${GITHUB_EVENT_NAME}" != "pull_request" ]]
 then
-    BRANCH_NAME=${GITHUB_REF}
+    BRANCH_NAME=${GITHUB_REF_NAME}
 else
     BRANCH_NAME=${GITHUB_HEAD_REF}
 fi
