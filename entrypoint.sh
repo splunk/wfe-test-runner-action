@@ -40,7 +40,7 @@ WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.ar
     -p sc4s-docker-registry=${15} \
     -p os-name=${16} \
     -p os-version=${17} \
-    -l="${10},test-type=${9},splunk-version=${7}" | jq -r .metadata.name`
+    -l="${10},test-type=${7},splunk-version=${7}" | jq -r .metadata.name`
 
 echo "After argo submit $?"
 echo 'WORKFLOW_NAME:' ${WORKFLOW_NAME}
