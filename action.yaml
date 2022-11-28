@@ -23,6 +23,10 @@ inputs:
   test-type:
     description: 'Type of tests to execute'
     required: true
+  k8s-manifests-branch:
+    description: 'Branch of k8s-manifests repository to use'
+    required: false
+    default: 'main'
   test-args:
     description: 'Pytest args for tests'
     required: false
@@ -85,6 +89,7 @@ runs:
     - ${{ inputs.job-name }}
     - ${{ inputs.splunk }}
     - ${{ inputs.test-type }}
+    - ${{ inputs.k8s-manifests-branch }}
     - ${{ inputs.test-args }}
     - ${{ inputs.labels }}
     - ${{ inputs.addon-name }}
