@@ -80,7 +80,7 @@ outputs:
     description: 'Name of workflow triggered'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/splunk/wfe-test-runner-action/wfe-test-runner-action:v1.6.8'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.workflow-tmpl-name }}
     - ${{ inputs.workflow-template-ns }}
