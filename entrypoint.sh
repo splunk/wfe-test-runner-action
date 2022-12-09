@@ -44,6 +44,6 @@ WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.ar
 
 echo "After argo submit $?"
 echo 'WORKFLOW_NAME:' ${WORKFLOW_NAME}
-echo "::set-output name=workflow-name::$(echo $WORKFLOW_NAME)"
+echo "workflow-name=$(echo $WORKFLOW_NAME)" >> $GITHUB_OUTPUT
 
 argo logs --follow ${WORKFLOW_NAME} -n ${2}
