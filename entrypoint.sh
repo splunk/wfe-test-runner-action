@@ -24,12 +24,6 @@ else
     BRANCH_NAME=${GITHUB_HEAD_REF}
 fi
 
-echo "Checking for Splunk password" 
-apt-get install sharutils -y
-SPLUNK_PASSWORD=$(dd if=/dev/urandom count=1 2> /dev/null | uuencode -m - | sed -ne 2p | cut -c-64)
-echo "Value of Splunk Password is"
-echo "$SPLUNK_PASSWORD"
-
 WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.argoproj.io/workflow-template=${1} --argo-base-href '' \
     -p ci-repository-url="https://github.com/${GITHUB_REPOSITORY}.git" \
     -p ci-commit-sha=${BRANCH_NAME} -p delay-destroy=${3} \
