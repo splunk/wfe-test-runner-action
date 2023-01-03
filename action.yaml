@@ -73,8 +73,7 @@ inputs:
     default: 'ubuntu'
   splunk-password:
     description: 'Password to access Splunk'
-    required: false
-    default: 'Splunk@123'
+    required: true
   os-version:
     description: 'OS version on which splunk will be spinned for scripted input'
     required: false
