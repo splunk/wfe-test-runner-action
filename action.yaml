@@ -27,6 +27,10 @@ inputs:
     description: 'Branch of k8s-manifests repository to use'
     required: false
     default: 'main'
+  splunk-password:
+    description: 'Password to access Splunk'
+    required: true
+    default: "Splunk@123"
   test-args:
     description: 'Pytest args for tests'
     required: false
@@ -87,6 +91,7 @@ runs:
     - ${{ inputs.delay-destroy }}
     - ${{ inputs.addon-url }}
     - ${{ inputs.job-name }}
+    - ${{ inputs.splunk-password }}
     - ${{ inputs.splunk }}
     - ${{ inputs.test-type }}
     - ${{ inputs.k8s-manifests-branch }}
