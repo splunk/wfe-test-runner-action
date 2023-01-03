@@ -30,7 +30,6 @@ inputs:
   splunk-password:
     description: 'Password to access Splunk'
     required: true
-    default: "Splunk@123"
   test-args:
     description: 'Pytest args for tests'
     required: false
