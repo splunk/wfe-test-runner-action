@@ -46,4 +46,4 @@ echo "After argo submit $?"
 echo 'WORKFLOW_NAME:' ${WORKFLOW_NAME}
 echo "workflow-name=$(echo $WORKFLOW_NAME)" >> $GITHUB_OUTPUT
 
-argo logs --follow ${WORKFLOW_NAME} -n ${2}
+# argo logs --follow ${WORKFLOW_NAME} -n ${2}
