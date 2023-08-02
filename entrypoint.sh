@@ -48,3 +48,7 @@ echo "workflow-name=$(echo $WORKFLOW_NAME)" >> $GITHUB_OUTPUT
 
 argo logs --follow ${WORKFLOW_NAME} -n ${2}
 echo "This should show up after argo logs are completed"
+
+sleep 30
+echo "Trying to retry `argo logs --follow`"
+argo logs --follow ${WORKFLOW_NAME} -n ${2}
