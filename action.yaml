@@ -13,9 +13,9 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 #   ########################################################################
-# action.yml
+# action.yaml
 name: 'Workflow engine test runner'
-description: 'Tringger argo workflow'
+description: 'Trigger argo workflow'
 inputs:
   splunk: # id of input
     description: 'Splunk version to test.'
@@ -43,10 +43,6 @@ inputs:
     description: 'Namespace where the workflow template lies'
     required: false
     default: 'default'
-  delay-destroy:
-    description: 'Delay destruction of the setup by 1h'
-    required: True
-    default: 'No'
   addon-url:
     description: 'URL for Add-on spl'
     required: true
@@ -80,11 +76,10 @@ outputs:
     description: 'Name of workflow triggered'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/splunk/wfe-test-runner-action/wfe-test-runner-action:v1.6.9'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.workflow-tmpl-name }}
     - ${{ inputs.workflow-template-ns }}
-    - ${{ inputs.delay-destroy }}
     - ${{ inputs.addon-url }}
     - ${{ inputs.job-name }}
     - ${{ inputs.splunk }}
@@ -99,3 +94,4 @@ runs:
     - ${{ inputs.sc4s-docker-registry }}
     - ${{ inputs.os-name }}
     - ${{ inputs.os-version }}
+
