@@ -88,15 +88,14 @@ jobs:
           labels: ${{ steps.docker_action_meta.outputs.labels }}
           cache-to: type=inline
 
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v3.1.1
-        with:
-          semantic_version: 19.0.2
-          extra_plugins: |
-            @semantic-release/exec
-            @semantic-release/git
+      - uses: splunk/semantic-release-action@v1.3
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_ADMIN }}
+        with:
+          git_committer_name: ${{ secrets.SA_GH_USER_NAME }}
+          git_committer_email: ${{ secrets.SA_GH_USER_EMAIL }}
+          gpg_private_key: ${{ secrets.SA_GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SA_GPG_PASSPHRASE }}
 
   update-semver:
     name: Move Respository semver tags
