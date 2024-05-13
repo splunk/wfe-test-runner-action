@@ -24,9 +24,13 @@ else
     BRANCH_NAME=${GITHUB_HEAD_REF}
 fi
 
+if [[ ${3} ]]
+then
+  echo "::warning title=Delay destroy not supported::Delay destroy is deprecated, please update your reusable workflow version"
+fi
 WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.argoproj.io/workflow-template=${1} --argo-base-href '' \
     -p ci-repository-url="https://github.com/${GITHUB_REPOSITORY}.git" \
-    -p ci-commit-sha=${BRANCH_NAME} -p delay-destroy=${3} \
+    -p ci-commit-sha=${BRANCH_NAME} \
     -p addon-url="${4}" \
     -p job-name=${5} \
     -p splunk-version=${6} \
