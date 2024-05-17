@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM ghcr.io/splunk/workflow-engine-base:2.0.12
+FROM ghcr.io/splunk/workflow-engine-base:3.0.0
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
