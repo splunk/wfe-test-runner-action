@@ -1,4 +1,4 @@
-FROM ghcr.io/splunk/workflow-engine-base:3.0.0
+FROM ghcr.io/splunk/workflow-engine-base:4.0.0
 
 COPY entrypoint.sh /entrypoint.sh
 
