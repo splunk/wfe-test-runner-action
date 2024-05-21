@@ -71,6 +71,10 @@ inputs:
     description: 'OS version on which splunk will be spinned for scripted input'
     required: false
     default: 'latest'
+  test-browser:
+    description: 'Browser type for UI tests'
+    required: false
+    default: ''
 outputs:
   workflow-name: # id of output
     description: 'Name of workflow triggered'
@@ -94,3 +98,4 @@ runs:
     - ${{ inputs.sc4s-docker-registry }}
     - ${{ inputs.os-name }}
     - ${{ inputs.os-version }}
+    - ${{ inputs.test-browser }}
