@@ -34,13 +34,14 @@ WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.ar
     -p k8s-manifests-branch="${7}" \
     -p pytest-args="${8}" \
     -p addon-name=${10} \
-    -p vendor-version=${11}\
-    -p sc4s-version=${12} \
-    -p install-java=${13} \
-    -p sc4s-docker-registry=${14} \
-    -p os-name=${15} \
-    -p os-version=${16} \
-    -p test-browser=${17} \
+    -p addon-folder-name=${11} \
+    -p vendor-version=${12}\
+    -p sc4s-version=${13} \
+    -p install-java=${14} \
+    -p sc4s-docker-registry=${15} \
+    -p os-name=${16} \
+    -p os-version=${17} \
+    -p test-browser=${18} \
     -l="${9},test-type=${6},splunk-version=${5}" | jq -r .metadata.name`
 
 echo "After argo submit $?"
