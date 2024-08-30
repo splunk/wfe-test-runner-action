@@ -51,8 +51,7 @@ inputs:
     required: true
   addon-folder-name:
     description: 'Technical add-on folder name'
-    required: false
-    default: ''
+    required: true
   vendor-version:
     description: 'Vendor product version'
     required: false
