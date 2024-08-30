@@ -49,6 +49,10 @@ inputs:
   addon-name:
     description: 'Technical add-on name'
     required: true
+  addon-folder-name:
+    description: 'Technical add-on folder name'
+    required: false
+    default: ''
   vendor-version:
     description: 'Vendor product version'
     required: false
@@ -92,6 +96,7 @@ runs:
     - ${{ inputs.test-args }}
     - ${{ inputs.labels }}
     - ${{ inputs.addon-name }}
+    - ${{ inputs.addon-folder-name }}
     - ${{ inputs.vendor-version }}
     - ${{ inputs.sc4s-version }}
     - ${{ inputs.install-java }}
