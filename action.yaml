@@ -75,17 +75,13 @@ inputs:
     description: 'Browser type for UI tests'
     required: false
     default: ''
-  pre-upgrade-marker:
-    required: false
-    description: 'marker for pre-upgrade tests'
-    default: ''
-  post-upgrade-marker:
-    required: false
-    description: 'marker for post-upgrade tests'
-    default: ''
   splunkbase-app-id:
     required: false
     description: 'relevant Splunkbase app ID for the given TA'
+    default: ''
+  splunkbase-app-version:
+    required: false
+    description: 'relevant Splunkbase app version for the given TA'
     default: ''
 outputs:
   workflow-name: # id of output
@@ -111,6 +107,5 @@ runs:
     - ${{ inputs.os-name }}
     - ${{ inputs.os-version }}
     - ${{ inputs.test-browser }}
-    - ${{ inputs.pre-upgrade-marker }}
-    - ${{ inputs.post-upgrade-marker }}
     - ${{ inputs.splunkbase-app-id }}
+    - ${{ inputs.splunkbase-app-version }}
