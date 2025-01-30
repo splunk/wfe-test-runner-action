@@ -42,6 +42,7 @@ WORKFLOW_NAME=`argo submit -v -o json --from wftmpl/${1} -n ${2} -l workflows.ar
     -p os-version=${16} \
     -p test-browser=${17} \
     -p ta-upgrade-version=${18} \
+    -p fast-fail=${19} \
     -l="${9},test-type=${6},splunk-version=${5}" | jq -r .metadata.name`
 
 echo "After argo submit $?"
