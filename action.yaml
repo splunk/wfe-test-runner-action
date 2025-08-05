@@ -82,7 +82,6 @@ inputs:
   python-version:
     description: 'Python version to use for tests'
     required: false
-    default: '3.7'
 outputs:
   workflow-name: # id of output
     description: 'Name of workflow triggered'
