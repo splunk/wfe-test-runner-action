@@ -79,12 +79,16 @@ inputs:
     required: false
     description: 'Initial version of the TA for upgrade tests'
     default: ''
+  python-version:
+    description: 'Python version to use for tests'
+    required: false
+    default: ''
 outputs:
   workflow-name: # id of output
     description: 'Name of workflow triggered'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/splunk/wfe-test-runner-action/wfe-test-runner-action:v5.1.0'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.workflow-tmpl-name }}
     - ${{ inputs.workflow-template-ns }}
@@ -104,3 +108,4 @@ runs:
     - ${{ inputs.os-version }}
     - ${{ inputs.test-browser }}
     - ${{ inputs.ta-upgrade-version }}
+    - ${{ inputs.python-version }}
