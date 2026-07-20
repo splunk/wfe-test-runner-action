@@ -83,12 +83,16 @@ inputs:
     description: 'Python version to use for tests'
     required: false
     default: ''
+  server-conf-python-version:
+    description: 'Value to set as python.version in server.conf [general] before tests'
+    required: false
+    default: ''
 outputs:
   workflow-name: # id of output
     description: 'Name of workflow triggered'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/splunk/wfe-test-runner-action/wfe-test-runner-action:v5.1.1'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.workflow-tmpl-name }}
     - ${{ inputs.workflow-template-ns }}
@@ -109,3 +113,4 @@ runs:
     - ${{ inputs.test-browser }}
     - ${{ inputs.ta-upgrade-version }}
     - ${{ inputs.python-version }}
+    - ${{ inputs.server-conf-python-version }}
