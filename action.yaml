@@ -82,7 +82,7 @@ inputs:
   python-version:
     description: 'Python version to use for tests'
     required: false
-    default: ''
+    default: '3.13'
   server-conf-python-version:
     description: 'Value to set as python.version in server.conf [general] before tests'
     required: false
