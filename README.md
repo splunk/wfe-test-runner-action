@@ -2,4 +2,4 @@
 
 Action to run Argo workflows for TA testing
 
-The `python-version` input defaults to `3.13` and is passed to the Argo test workflow. The `server-conf-python-version` input controls Splunk's separate `python.version` setting.
+The `python-version` input defaults to `3.13`, also accepts `3.9`, and is passed to the Argo test workflow. The `server-conf-python-version` input controls Splunk's separate `python.version` setting.
